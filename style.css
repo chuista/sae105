@@ -1,3 +1,88 @@
 body{
-    background: linear-gradient(rgb(255, 120, 18),rgb(255, 94, 209))
+    background: linear-gradient(rgb(255, 174, 112),rgb(255, 140, 222))
+}
+
+#mewtoo{
+    width: 150px;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    font-size: 18px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+#plusheveetitre {
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 150px;
+}
+
+
+h1 {
+    text-align: center;
+}
+
+#gogo {
+    text-align: center;
+}
+
+
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+}
+
+/* Produits */
+.product {
+    border: 1px solid #ffc680;
+    border-radius: 20px;
+    background-color: rgb(247, 206, 221);
+    padding: 15px;
+    text-align: center;
+}
+
+.product h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.product button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+.product button:hover {
+    background: #218838;
 }
