@@ -2,12 +2,110 @@
     <head>
         <meta charset="UTF-8" />
         <title>Plushevee</title>
-        <link rel="stylesheet" href="" >
+        <link rel="stylesheet" href="style.css" >
     </head>
 
+    <header>
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#peluche">peluches</a>
+        </nav>
+
+    </header>
+
     <body>
-        <p>j'aime le sigma caca</p>
+        <img src="plushevee.png" id="plusheveetitre">
+        <div class="products-container">
+            <div class="product" data-name="peluche 1" data-price="19,99">
+                <h2>Produit 1</h2>
+                <img src="mewtoo.png" id="mewtoo">
+                <p>19,99€</p>
+                <button onclick="addToCart(this)">Ajouter au panier</button>
+            </div>
+
+            <div class="product" data-name="peluche 2" data-price="19,99">
+                <h2>Produit 2</h2>
+                <p>19,99€</p>
+                <button onclick="addToCart(this)">Ajouter au panier</button>
+            </div>
+            
+            <div class="product" data-name="peluche 3" data-price="19,99">
+                <h2>Produit 3</h2>
+                <p>19,99</p>
+                <button onclick="addToCart(this)">Ajouter au panier</button>
+            </div>
+            
+            <div class="product" data-name="peluche 4" data-price="19,99">
+                <h2>Produit 4</h2>
+                <p>19,99</p>
+                <button onclick="addToCart(this)">Ajouter au panier</button>
+            </div>
+            
+            <div class="product" data-name="peluche 5" data-price="19,99">
+                <h2>Produit 5</h2>
+                <p>19,99</p>
+                <button onclick="addToCart(this)">Ajouter au panier</button>
+            </div>
+            
+            <div class="product" data-name="peluche 6" data-price="19,99">
+                <h2>Produit 6</h2>
+                <p>19,99</p>
+                <button onclick="addToCart(this)">Ajouter au panier</button>
+            </div>
+            
+            <div class="product" data-name="peluche 7" data-price="19,99">
+                <h2>Produit 7</h2>
+                <p>19,99</p>
+                <button onclick="addToCart(this)">Ajouter au panier</button>
+            </div>
+
+            <div class="product" data-name="peluche 8" data-price="19,99">
+                <h2>Produit 8</h2>
+                <p>19,99</p>
+                <button onclick="addToCart(this)">Ajouter au panier</button>
+            </div>
+            
+            <h2>Panier</h2>
+            <div id="cart">
+                <p>Votre panier est vide.</p>
+            </div>
+        </div>
+        
     </body>
+
+    <script>
+        const cart = {};
+    
+        function addToCart(button) {
+            const product = button.parentElement;
+            const name = product.dataset.name;
+            const price = parseFloat(product.dataset.price);
+    
+            if (!cart[name]) {
+                cart[name] = { price: price, quantity: 0 };
+            }
+            cart[name].quantity++;
+            updateCartDisplay();
+        }
+    
+        function updateCartDisplay() {
+            const cartContainer = document.getElementById('cart');
+            cartContainer.innerHTML = '';
+            
+            let total = 0;
+            for (const [name, details] of Object.entries(cart)) {
+                const { price, quantity } = details;
+                const itemTotal = price * quantity;
+                total += itemTotal;
+                cartContainer.innerHTML += `<p>${name}: ${quantity} x ${price}€ = ${itemTotal}€</p>`;
+            }
+            if (total === 0) {
+                cartContainer.innerHTML = '<p>Votre panier est vide.</p>';
+            } else {
+                cartContainer.innerHTML += `<h3>Total: ${total}€</h3>`;
+            }
+        }
+    </script>
 
     <footer>
         <p>Copyright © Charlotte Pacaud et Ines Kibach</p>
