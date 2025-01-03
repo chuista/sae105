@@ -7,14 +7,15 @@
 
     <header>
         <nav class="navbar">
+            <img src="plushevee.png" id="plusheveetitre">
             <a href="#home">home</a>
             <a href="#peluche">peluches</a>
+            <a href="panier.html">Voir Panier</a>
         </nav>
 
     </header>
 
     <body>
-        <img src="plushevee.png" id="plusheveetitre">
         <div class="products-container">
             <div class="product" data-name="peluche 1" data-price="19,99">
                 <h2>Produit 1</h2>
@@ -64,46 +65,22 @@
                 <p>19,99</p>
                 <button onclick="addToCart(this)">Ajouter au panier</button>
             </div>
-            
-            <h2>Panier</h2>
-            <div id="cart">
-                <p>Votre panier est vide.</p>
-            </div>
         </div>
         
     </body>
 
     <script>
-        const cart = {};
-    
         function addToCart(button) {
             const product = button.parentElement;
             const name = product.dataset.name;
             const price = parseFloat(product.dataset.price);
-    
+
+            const cart = JSON.parse(localStorage.getItem('cart')) || {};
             if (!cart[name]) {
                 cart[name] = { price: price, quantity: 0 };
             }
             cart[name].quantity++;
-            updateCartDisplay();
-        }
-    
-        function updateCartDisplay() {
-            const cartContainer = document.getElementById('cart');
-            cartContainer.innerHTML = '';
-            
-            let total = 0;
-            for (const [name, details] of Object.entries(cart)) {
-                const { price, quantity } = details;
-                const itemTotal = price * quantity;
-                total += itemTotal;
-                cartContainer.innerHTML += `<p>${name}: ${quantity} x ${price}€ = ${itemTotal}€</p>`;
-            }
-            if (total === 0) {
-                cartContainer.innerHTML = '<p>Votre panier est vide.</p>';
-            } else {
-                cartContainer.innerHTML += `<h3>Total: ${total}€</h3>`;
-            }
+            localStorage.setItem('cart', JSON.stringify(cart));
         }
     </script>
 
