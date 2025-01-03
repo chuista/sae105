@@ -31,10 +31,7 @@ body{
 
 #plusheveetitre {
     display: block;
-    margin: 0 auto;
-    position: absolute;
-    top: 0;
-    left: 50%;
+    margin: 0 20px;
     width: 150px;
 }
 
