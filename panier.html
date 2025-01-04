@@ -8,7 +8,8 @@
 <body>
     <header>
         <nav class="navbar">
-            <a href="index.html">Retour à la boutique</a>
+            <a href="#home">Home</a>
+            <a href="index.html">Peluches</a>
         </nav>
     </header>
 
@@ -18,25 +19,50 @@
     </div>
 
     <script>
-        function loadCart() {
-            const cart = JSON.parse(localStorage.getItem('cart')) || {};
-            const cartContainer = document.getElementById('cart-container');
-            cartContainer.innerHTML = '';
+    function loadCart() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || {};
+        const cartContainer = document.getElementById('cart-container');
+        cartContainer.innerHTML = ''; // Vide le conteneur pour un nouvel affichage
 
-            let total = 0;
-            for (const [name, details] of Object.entries(cart)) {
-                const { price, quantity } = details;
-                const itemTotal = price * quantity;
-                total += itemTotal;
-                cartContainer.innerHTML += `<p>${name}: ${quantity} x ${price.toFixed(2)}€ = ${itemTotal.toFixed(2)}€</p>`;
-            }
-            if (total === 0) {
-                cartContainer.innerHTML = '<p>Votre panier est vide.</p>';
-            } else {
-                cartContainer.innerHTML += `<h3>Total: ${total.toFixed(2)}€</h3>`;
+        let total = 0; // Initialise le total
+        for (const [name, details] of Object.entries(cart)) {
+            const { price, quantity } = details;
+            const itemTotal = price * quantity;
+            total += itemTotal;
+
+        // Recherche du nom correct du produit en utilisant "name"
+            const productName = name; // "name" correspond au nom exact du produit, comme "MewTwo"
+
+        // Ajout de l'article avec un bouton "Supprimer"
+            const itemDiv = document.createElement('div');
+            itemDiv.classList.add('cart-item');
+            itemDiv.innerHTML = `
+                <p>${productName}: ${itemTotal.toFixed(2)}€</p>
+                <button onclick="removeFromCart('${name}')">Supprimer</button>
+            `;
+            cartContainer.appendChild(itemDiv);
+        }
+
+        if (total === 0) {
+            cartContainer.innerHTML = '<p>Votre panier est vide.</p>';
+        } else {
+            const totalDiv = document.createElement('div');
+            totalDiv.innerHTML = `<h3>Total: ${total.toFixed(2)}€</h3>`;
+            cartContainer.appendChild(totalDiv);
+        }
+    }
+
+
+        function removeFromCart(itemName) {
+            const cart = JSON.parse(localStorage.getItem('cart')) || {};
+            if (cart[itemName]) {
+                delete cart[itemName]; // Supprime l'article du panier
+                localStorage.setItem('cart', JSON.stringify(cart)); // Met à jour le localStorage
+                loadCart(); // Recharge l'affichage du panier
             }
         }
 
+        // Charger le panier au démarrage de la page
         window.onload = loadCart;
     </script>
 </body>
