@@ -2,8 +2,16 @@ body{
     background: linear-gradient(rgb(255, 174, 112),rgb(255, 140, 222))
 }
 
+ body {
+    padding-top: 60px;
+}
+
 #mewtoo{
     width: 150px;
+}
+
+#sala{
+    width: 200px;
 }
 
 .navbar {
@@ -13,15 +21,16 @@ body{
     width: 100%;
     background: #333;
     color: white;
-    padding: 15px 0;
+    padding: 10px 0;
     text-align: center;
     font-size: 18px;
+    z-index: 1000;
 }
 
 .navbar a {
     color: white;
     text-decoration: none;
-    margin: 0 20px;
+    margin: 0 15px;
     font-weight: bold;
 }
 
@@ -49,6 +58,8 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 15px;
+    margin-top: 35px; /* Ajoutez un petit espace au-dessus des produits */
+    padding: 0 15px; /* Ajoutez une marge interne pour respirer */
 }
 
 /* Produits */
