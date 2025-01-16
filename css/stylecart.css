@@ -1,0 +1,72 @@
+body {
+    background: linear-gradient(rgb(252, 167, 190), rgb(241, 156, 191));
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: rgb(164, 164, 203);
+    color: white;
+}
+
+.remove-btn {
+    display: inline-block;
+    background-color: rgb(217, 101, 143); 
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none; 
+    border-radius: 5px;
+    font-size: 14px;
+    cursor: pointer; 
+    transition: background-color 0.3s, transform 0.2s; 
+}
+
+
+.remove-btn:hover {
+    background-color: rgb(204, 79, 125);
+    transform: scale(1.1);
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+#plusheveetitre {
+    display: block;
+    margin: 0 20px;
+    width: 150px;
+}
+
+footer {
+    background-color: rgb(149, 135, 111); /* Fond gris foncé */
+    color: white; /* Texte en blanc */
+    text-align: center; /* Centrer le texte */
+    padding: 20px 0; /* Ajoute de l'espace autour du texte */
+    font-size: 14px; /* Taille de texte plus petite */
+    margin-top: 50px; /* Ajoute de l'espace entre le contenu et le footer */
+    width: 100%; /* Assure que le footer prend toute la largeur */
+    box-sizing: border-box; /* Inclut la largeur des bordures et du padding dans la largeur totale */
+}
+
+h3 {
+    color: rgb(204, 79, 125);
+}
