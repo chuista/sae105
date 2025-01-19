@@ -10,22 +10,16 @@ body {
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    background-color: rgb(164, 164, 203);
+    background-color: rgb(255, 184, 221);
     color: white;
 }
 
 
 .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #333;
-    color: white;
+    display: flex;
+    justify-content: center;
+    background-color: #333;
     padding: 10px 0;
-    text-align: center;
-    font-size: 18px;
-    z-index: 1000;
 }
 
 .navbar a {
